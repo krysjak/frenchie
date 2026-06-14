@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "frenchie"
+version = "0.1"
+
+description = "Frenchie - AI-powered coding assistant for local and cloud models"
+requires-python = ">=3.11"
+dependencies = [
+  "anthropic>=0.39.0",
+  "openai>=1.40.0",
+  "click>=8.1.7",
+  "pydantic>=2.8.0",
+  "rich>=13.7.0",
+  "httpx>=0.27.0",
+  "pyyaml>=6.0.2",
+  "websockets>=12.0",
+  "prompt_toolkit>=3.0.0",
+]
+
+[project.scripts]
+frenchie = "claude_code_py.cli:main"
+claude-py = "claude_code_py.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["claude_code_py*"]
+
+[tool.setuptools.package-data]
+claude_code_py = ["resources/**/*"]
